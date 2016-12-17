@@ -1,0 +1,40 @@
+<div class="container">
+
+	<h1>Accounts</h1>
+	<form name="addAccountForm">
+	    <div class="row">
+	      <div class="col-xs-3">
+	        <input type="text" class="form-control" placeholder="Account Name" ng-model="account.name" required/>
+	      </div>
+	      <div class="col-xs-2">
+	        <select class="form-control" ng-model="account.currency" required>
+	          <option>$</option>
+	          <option>€</option>
+	          <option>£</option>
+	        </select>
+	      </div>
+	      <div class="col-xs-2">
+	        <button type="submit" class="btn btn-primary" ng-click="addAccount(account)">Add</button>
+	      </div>
+	    </div>
+	</form>
+
+	<table class="table table-condensed table-hover">
+	    <thead>
+			<tr>
+				<th>Account Name</th>
+				<th>Balance</th>
+				<th>View Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="account in accounts">
+				<td>{{account.name}}</td>
+				<td>{{account.currency}} {{account.balance}}</td>
+				<td><a href="#/accounts/{{account._id}}"><button type="submit" class="btn btn-success btn-xs">Details</button></a> <button type="submit" class="btn btn-danger btn-xs" ng-click="deleteAccount(account._id)">Delete</button></td>
+			</tr>
+	    </tbody>
+  	</table>
+
+  	
+</div>

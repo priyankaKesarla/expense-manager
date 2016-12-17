@@ -1,0 +1,28 @@
+<div class="container">
+	<h1>Categories</h1>
+	<form name="addCategoryForm">
+	    <div class="row">
+	      <div class="col-xs-3">
+	        <input type="text" class="form-control" placeholder="Category Name" ng-model="category.name" required/>
+	      </div>
+	      <div class="col-xs-2">
+	        <button type="submit" class="btn btn-primary" ng-click="addCategory(category)">Add</button>
+	      </div>
+	    </div>
+	</form>
+
+	<table class="table table-condensed table-hover">
+	    <thead>
+			<tr>
+				<th>Category</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="category in categories">
+				<td>{{category.name}}</td>
+				<td><button type="submit" class="btn btn-danger btn-xs" ng-click="deleteCategory(category._id)">Delete</button></td>
+			</tr>
+	    </tbody>
+  	</table>
+</div>

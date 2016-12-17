@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="budgetApp">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Budget Manager</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+  </head>
+  
+  <body check-user>
+
+    <div class="container navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/accounts">Budget Manager</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/accounts">Accounts</a></li>
+                <li><a href="#/categories">Categories</a></li>
+                <li><a href="#/about">About</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="user.isLogged"><a href="#/logout">Welcome, {{user.user}}! Logout</a></li>
+                <li ng-if="!user.isLogged"><a href="#/login">Login</a></li>
+                <li ng-if="!user.isLogged"><a href="#/register">Register</a></li>
+            </ul>
+                
+        </div>
+    </div>
+
+    <div ng-view></div>
+    
+    <script src="lib/jquery/jquery-2.0.3.min.js"></script>
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/AccountsController.js"></script>
+    <script src="js/CategoriesController.js"></script>
+    <script src="js/UserController.js"></script>
+    <script src="lib/chart/Chart.min.js"></script>
+  </body>
+</html>
