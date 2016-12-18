@@ -14,10 +14,15 @@ budgetControllers.controller('UserLoginCtrl', ['$scope', '$http', '$location', '
 
 budgetControllers.controller('UserRegisterCtrl', ['$scope', '$http', '$location', 'UserService',
 	function UserRegisterCtrl($scope, $http, $location, userSrv) {
+        $scope.category=['food','entertainment','accomodation'];
 
 		$scope.register = function(user) {
+            var params={
+                userdetails:user,
+                category:$scope.category
+            };
 			if (user.username != undefined && user.password != undefined) {
-				$http.post("http://localhost:4000/register", user).success(function(data) {
+				$http.post("http://localhost:4000/register", params).success(function(data) {
 					$location.path("/login");
 			    });
 			}
