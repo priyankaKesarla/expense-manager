@@ -7,7 +7,7 @@ var path= require('path');
 
 //Route
 var routes = {};
-routes.accounts = require('./route/accounts.js');
+/*routes.accounts = require('./route/accounts.js');*/
 routes.records = require('./route/records.js');
 routes.categories = require('./route/categories.js');
 routes.users = require('./route/users.js');
@@ -58,23 +58,27 @@ app.post('/register', routes.users.register);
 
 app.get('/logout', pass.userIsAuthenticated, routes.users.logout);
 
+/*
 //Get all accounts and compute balance.
 app.get('/accounts', pass.userIsAuthenticated, routes.accounts.list);
+*/
 
-//Create new Account
-app.post('/accounts', pass.userIsAuthenticated, routes.accounts.create);
+/*//Create new Account
+app.post('/accounts', pass.userIsAuthenticated, routes.accounts.create);*/
 
-//Delete Account
+/*//Delete Account
 app.delete('/accounts/:id', pass.userIsAuthenticated, routes.accounts.delete);
 
 //Get specific account
-app.get('/accounts/:id', pass.userIsAuthenticated, routes.accounts.detail);
+app.get('/accounts/:id', pass.userIsAuthenticated, routes.accounts.detail);*/
 
+
+app.get('/records', pass.userIsAuthenticated, routes.records.list);
 //Create new Record
-app.post('/accounts/:accountId/records', pass.userIsAuthenticated, routes.records.create);
+app.post('/records', pass.userIsAuthenticated, routes.records.create);
 
 //Delete Record
-app.delete('/accounts/:accountId/records/:recordId', pass.userIsAuthenticated, routes.records.delete);
+app.delete('/records/:recordId', pass.userIsAuthenticated, routes.records.delete);
 
 //Get all categories
 app.get('/categories', pass.userIsAuthenticated, routes.categories.list);
