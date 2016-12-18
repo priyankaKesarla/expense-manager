@@ -1,5 +1,14 @@
 var db = require('../config/database.js');
 
+/*var category = new db.categoryModel();
+	category.name = req.body.name;
+	category.save(function(err) {
+		if (err) {
+			console.log(err);
+			return res.send(400);
+		}*/
+
+
 exports.list = function(req, res) {
   	db.categoryModel.find({user_id: req.user._id}, function(err, results) {
   		if (err) {

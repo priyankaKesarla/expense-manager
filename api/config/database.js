@@ -24,23 +24,23 @@ var User = new Schema({
 
 var Category = new Schema({
   user_id: { type: Schema.ObjectId, ref: 'User', required: true },
-  name: { type: String, unique:true, required: true }
+  name: { type: String, required: true }
 });
 
-var Account = new Schema({
+/*var Account = new Schema({
   user_id: { type: Schema.ObjectId, ref: 'User', required: true },
   name: { type: String, required: true },
   currency: { type: String, required: true },
   balance: { type: Number, required: true },
-});
+});*/
 
 var Record = new Schema({
-  account_id: { type: Schema.ObjectId, ref: 'Account', required: true },
+  //account_id: { type: Schema.ObjectId, ref: 'Account', required: true },
   user_id: { type: Schema.ObjectId, ref: 'User', required: true },
   category: { type: String, required: true },
   amount: { type: Number, required: true },
   date: { type: Date, default: Date.now },
- // is_expense: { type: Boolean, default: true },
+  //is_expense: { type: Boolean, default: true },
   description: { type: String }
 });
 
@@ -70,13 +70,13 @@ User.methods.comparePassword = function(candidatePassword, cb) {
 };
 
 var userModel = mongoose.model('User', User);
-var accountModel = mongoose.model('Account', Account);
+/*var accountModel = mongoose.model('Account', Account);*/
 var recordModel = mongoose.model('Record', Record);
 var categoryModel = mongoose.model('Category', Category);
 
 
 // Export Models
 exports.userModel = userModel;
-exports.accountModel = accountModel;
+/*exports.accountModel = accountModel;*/
 exports.recordModel = recordModel;
 exports.categoryModel = categoryModel;
